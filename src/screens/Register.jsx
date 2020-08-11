@@ -14,7 +14,7 @@ export default function Register({ navigation }) {
   ];
   return (
     <LogoHead>
-      <View>
+      <View style={styles.container}>
         <Text>Create Your Account</Text>
         <TextInput placeholder="First Name" style={styles.input_fields} />
         <TextInput placeholder="Last Name" style={styles.input_fields} />
@@ -23,13 +23,18 @@ export default function Register({ navigation }) {
         <TextInput placeholder="Email" style={styles.input_fields} />
         <TextInput placeholder="Password" style={styles.input_fields} />
         <TextInput placeholder="Confirm Password" style={styles.input_fields} />
-        <Button title="CREATE ACCOUNT" />
+        <View style={styles.account_btn}>
+          <Button title="CREATE ACCOUNT" />
+        </View>
       </View>
     </LogoHead>
   );
 }
 
 const styles = StyleSheet.create({
+  container: {
+    padding: 20,
+  },
   input_fields: {
     borderWidth: 1,
     marginTop: 10,
@@ -39,6 +44,11 @@ const styles = StyleSheet.create({
   combobox: {
     marginTop: 10,
     width: "100%",
-    borderWidth: 1,
+    backgroundColor: "#fff",
+  },
+  account_btn: {
+    alignSelf: "center",
+    width: "50%",
+    marginTop: 10,
   },
 });
