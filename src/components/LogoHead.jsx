@@ -18,11 +18,11 @@ export default function LogoHead({ children }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 20,
+    paddingTop: 10,
     backgroundColor: "#fff",
   },
   logo_group: {
-    marginTop: 50,
+    marginTop: 10,
     alignItems: "center",
   },
   mainText: {

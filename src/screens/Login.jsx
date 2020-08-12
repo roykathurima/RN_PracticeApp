@@ -26,7 +26,12 @@ export default function Login({ navigation }) {
 
       <View style={styles.buttons_group}>
         <View style={styles.button_login}>
-          <Button title="LOGIN" />
+          <Button
+            title="LOGIN"
+            onPress={() => {
+              navigation.navigate("Home");
+            }}
+          />
         </View>
         <View style={styles.button_register}>
           <Button
