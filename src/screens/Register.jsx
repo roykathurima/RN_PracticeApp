@@ -1,24 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import LogoHead from "../components/LogoHead";
 import { Button, Text, View, StyleSheet, TextInput } from "react-native";
 // import { Dropdown } from "react-native-material-dropdown-v2";
 import { Picker } from "@react-native-community/picker";
+import symbolicateStackTrace from "react-native/Libraries/Core/Devtools/symbolicateStackTrace";
 
 export default function Register({ navigation }) {
-  let data = [
-    {
-      value: "UK",
-    },
-    {
-      ke: "Kenya",
-    },
-    {
-      ru: "Russia",
-    },
-    {
-      ug: "Uganda",
-    },
-  ];
+  const [currentState, setCurrentState] = useState("java");
+  var _isLoaded = false;
+  // let data = [
+  //   {
+  //     value: "UK",
+  //   },
+  //   {
+  //     ke: "Kenya",
+  //   },
+  //   {
+  //     ru: "Russia",
+  //   },
+  //   {
+  //     ug: "Uganda",
+  //   },
+  // ];
+
   return (
     <LogoHead>
       <View style={styles.container}>
@@ -28,16 +32,18 @@ export default function Register({ navigation }) {
         <TextInput placeholder="First Name" style={styles.input_fields} />
         <TextInput placeholder="Last Name" style={styles.input_fields} />
         <TextInput placeholder="Email" style={styles.input_fields} />
-        <Picker
-          selectedValue={data.ug}
-          style={styles.combobox}
-          // onValueChange={(itemValue, itemIndex) =>
-          //   this.setState({language: itemValue})
-          // }
-        >
-          <Picker.Item label="Java" value="java" />
-          <Picker.Item label="JavaScript" value="js" />
-        </Picker>
+        <View style={styles.combobox}>
+          <Picker
+            mode={"dropdown"}
+            selectedValue={currentState}
+            onValueChange={(itemValue, itemIndex) =>
+              setCurrentState({ itemValue })
+            }
+          >
+            <Picker.Item label="Java" value="java" />
+            <Picker.Item label="JavaScript" value="js" />
+          </Picker>
+        </View>
         {/* <Dropdown
           label="Select Country"
           useNativeDriver={true}
@@ -66,10 +72,12 @@ const styles = StyleSheet.create({
     width: "100%",
   },
   combobox: {
-    marginTop: 10,
     width: "100%",
+    height: 40,
+    borderColor: "black",
     borderWidth: 1,
-    backgroundColor: "#fff",
+    marginTop: 10,
+    justifyContent: "center",
   },
   account_btn: {
     alignSelf: "center",

@@ -3,6 +3,7 @@ import { Text } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import TestText from "../components/TestText";
 import TopTabNav from "./TopTabNav";
+import Courses from "../screens/Courses";
 // import Ionicons from "react-native-vector-icons/Ionicons";
 import {
   FontAwesome5,
@@ -13,13 +14,13 @@ import {
 
 const Tabs = createBottomTabNavigator();
 
-function Courses() {
-  return (
-    <TestText>
-      <Text>This is the Courses Screen</Text>
-    </TestText>
-  );
-}
+// function Courses() {
+//   return (
+//     <TestText>
+//       <Text>This is the Courses Screen</Text>
+//     </TestText>
+//   );
+// }
 
 function Account() {
   return (
@@ -58,7 +59,7 @@ export default function BottomTabNav() {
               />
             );
           }
-          // You can return any component that you like here!
+          // Mess around and return whatever Icon you want...
           return <FontAwesome5 name={iconName} size={size} color={color} />;
         },
       })}
